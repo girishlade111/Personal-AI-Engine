@@ -1,69 +1,79 @@
-# Welcome to your Lovable project
+# Personal AI Engine
 
-## Project info
+A personal AI assistant concept web app — an interactive dashboard for managing, importing, and searching your own knowledge base through a neural-style interface. Includes a landing page, profile cards, import panel, neural network visualization, project roadmap, waitlist, and settings.
 
-**URL**: https://lovable.dev/projects/513db1a2-0fcc-4643-bd43-f10d076dfa80
+## Features
 
-## How can I edit this code?
+- **Landing experience** — animated hero, manage/design/deploy sections, use cases, testimonials, loading screen
+- **Personal knowledge dashboard** — Manage page with project cards and roadmap
+- **Import panel** — bring in your own data sources
+- **Search** — semantic-style search over your personal knowledge
+- **Neural visualization** — animated neural-node graph components
+- **Profile & settings** — user profile card, theme toggle, preferences
+- **Mock auth** — client-side login/logout state persisted in `localStorage` (no backend required)
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- React 18 + TypeScript
+- Vite 5
+- Tailwind CSS + tailwindcss-animate
+- shadcn/ui component library (Radix primitives)
+- React Router v6, React Query, React Hook Form + Zod
+- Framer Motion, recharts, embla-carousel, cmdk
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/513db1a2-0fcc-4643-bd43-f10d076dfa80) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Quick Start
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the dev server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview the production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+Personal-AI-Engine/
+├── index.html          # Entry HTML
+├── src/
+│   ├── App.tsx         # Router + providers (Auth, Theme, QueryClient)
+│   ├── main.tsx        # React entry point
+│   ├── pages/          # Index, WhyPage, HowPage, Profile, Import,
+│   │                   # SearchPage, Settings, ManagePage, NotFound
+│   ├── components/
+│   │   ├── landing/    # Hero, Manage, Design, Deploy, UseCases,
+│   │   │               # Testimonials, CallToAction sections
+│   │   ├── manage/     # Dashboard manage components
+│   │   ├── projects/   # Project roadmap/cards
+│   │   ├── search/     # Search UI
+│   │   ├── waitlist/   # Waitlist components
+│   │   └── ui/         # shadcn/ui primitives
+│   ├── contexts/       # Auth (mock) + Theme contexts
+│   ├── hooks/          # Reusable hooks
+│   ├── lib/            # Utilities, animations
+│   └── types/          # TypeScript types
+├── public/             # Static assets
+└── package.json
+```
 
-**Use GitHub Codespaces**
+## Environment Variables
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+None required — the app runs fully client-side. Auth is a mock persisted in `localStorage`.
 
-## What technologies are used for this project?
+## Deploy
 
-This project is built with .
+Static build — deploy `dist/` to any static host:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Cloudflare Pages:** `cloudflare pages_deploy personal-ai-engine dist`
+- **Netlify / Vercel / GitHub Pages:** build with `npm run build` and serve `dist/`
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/513db1a2-0fcc-4643-bd43-f10d076dfa80) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Built by Girish Lade — https://ladestack.in
